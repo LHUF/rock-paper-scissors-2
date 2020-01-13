@@ -22,12 +22,28 @@ function playRound(humanChoice, computerChoice) {
 
 }
 
+function showResults() {
+    const roundScore = document.createElement("h2")
+    roundScore.classList.add("roundScore");
+
+    if (result == "draw") roundScore.textContent = "This Round was a draw";
+    if (result == "Computer Win") roundScore.textContent = "The computer won this round";
+    if (result == "Player Win") roundScore.textContent = "You won this round"
+
+    document.querySelector("#results").appendChild(roundScore);
+}
+
 document.getElementById("rockBtn").addEventListener("click", () => {
     playRound("rock");
+    showResults();
 });
 document.getElementById("paperBtn").addEventListener("click", () => {
     playRound("paper");
+    showResults();
 });
 document.getElementById("scissorsBtn").addEventListener("click", () => {
     playRound("scissors");
+    showResults();
 });
+
+
