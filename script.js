@@ -23,7 +23,9 @@ function playRound(humanChoice, computerChoice) {
     else if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "paper"
     && computerChoice == "rock" || humanChoice == "scissors" && computerChoice == "paper") {
         result = "Player Win";
-    } else result = "Computer Win";
+        humanScore++;
+    } else if (result = "Computer Win") computerScore++;
+    
 
 }
 
@@ -51,4 +53,8 @@ document.getElementById("scissorsBtn").addEventListener("click", () => {
     showResults();
 });
 
-
+//find a way to show who played what in each game
+//limit game to 5 rounds
+//show result after 5 rounds of who won overall
+//ask to play again
+//use loop for button listeners
