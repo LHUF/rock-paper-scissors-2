@@ -1,4 +1,7 @@
 let result;
+let computerScore = 0;
+let humanScore = 0;
+let roundCount = 0;
 
 function computerPlay() {
     randomNum = Math.floor(Math.random() * 3) + 1;  
@@ -12,13 +15,15 @@ function computerPlay() {
 
 function playRound(humanChoice, computerChoice) {
     computerChoice = computerPlay();
+
+    roundCount++;
     
-    if (humanChoice == computerChoice) return result = "draw";
+    if (humanChoice == computerChoice) result = "draw";
 
     else if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "paper"
     && computerChoice == "rock" || humanChoice == "scissors" && computerChoice == "paper") {
-        return result = "Player Win";
-    } else return result = "Computer Win";
+        result = "Player Win";
+    } else result = "Computer Win";
 
 }
 
@@ -26,9 +31,9 @@ function showResults() {
     const roundScore = document.createElement("h2")
     roundScore.classList.add("roundScore");
 
-    if (result == "draw") roundScore.textContent = "This Round was a draw";
-    if (result == "Computer Win") roundScore.textContent = "The computer won this round";
-    if (result == "Player Win") roundScore.textContent = "You won this round"
+    if (result == "draw") roundScore.textContent = `Round ${roundCount} was a draw.`;
+    if (result == "Computer Win") roundScore.textContent = `The computer won round ${roundCount}.`;
+    if (result == "Player Win") roundScore.textContent = `You won round ${roundCount}.`
 
     document.querySelector("#results").appendChild(roundScore);
 }
