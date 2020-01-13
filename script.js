@@ -1,5 +1,4 @@
 let result;
-let humanChoice;
 
 function computerPlay() {
     randomNum = Math.floor(Math.random() * 3) + 1;  
@@ -14,17 +13,21 @@ function computerPlay() {
 function playRound(humanChoice, computerChoice) {
     computerChoice = computerPlay();
     
-    if (humanChoice == computerChoice) result = "draw";
+    if (humanChoice == computerChoice) return result = "draw";
 
     else if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "paper"
     && computerChoice == "rock" || humanChoice == "scissors" && computerChoice == "paper") {
-        result = "Player Win";
-    } else result = "Computer Win";
+        return result = "Player Win";
+    } else return result = "Computer Win";
 
 }
 
-
-
-
-(playRound("rock"));
-console.log(result);
+document.getElementById("rockBtn").addEventListener("click", () => {
+    playRound("rock");
+});
+document.getElementById("paperBtn").addEventListener("click", () => {
+    playRound("paper");
+});
+document.getElementById("scissorsBtn").addEventListener("click", () => {
+    playRound("scissors");
+});
